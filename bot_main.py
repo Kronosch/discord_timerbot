@@ -12,7 +12,6 @@ from discord.ext import commands
 #load_dotenv()
 #TOKEN = os.getenv('DISCORD_TOKEN')
 #GUILD = os.getenv('DISCORD_GUILD')
-TOKEN = 'MTA2NDE5MjU1MzI5OTIyNjcyNQ.GMuopM.xA_amK9b2_dJSh2m_PtqIalZbDVoQUkv3XeGf4'
 
 TIMERFILE = 'timerlist.txt'
 
