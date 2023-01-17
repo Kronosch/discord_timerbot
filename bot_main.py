@@ -1,28 +1,24 @@
 # https://discord.com/api/oauth2/authorize?client_id=1064192553299226725&permissions=0&scope=bot%20applications.commands
 import os
 import random
-import pickle
 import json
 from datetime import datetime
 from datetime import timedelta
 import discord
 from discord.ext import commands
-#from dotenv import load_dotenv
 
-#load_dotenv()
-#TOKEN = os.getenv('DISCORD_TOKEN')
-#GUILD = os.getenv('DISCORD_GUILD')
-
-TIMERFILE = 'timerlist.txt'
+#load token and filename from config
+TOKEN     = os.getenv('DISCORD_TOKEN')
+TIMERFILE = os.getenv('TIMERLIST')
 
 intents = discord.Intents.default()
 intents.message_content = True
 
 bot    = commands.Bot(command_prefix='/', intents=intents)
 #info   = commands.errors
-timers = {}
-#init timer list
 
+#now init the timer list from file
+timers = {}
 try:
     with open(TIMERFILE, 'r') as tf:
         timers = json.load(tf)
@@ -32,7 +28,6 @@ except EOFError:
     timers = {}
 except:
     timers = {}
-print(timers)
 
 def getTimeUnit(unit):
     match unit.upper():
